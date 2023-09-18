@@ -1,4 +1,4 @@
-import { Col, Row, Button } from "react-bootstrap";
+import { Col, Row, Button, Alert } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCartAction } from "../redux/actions";
 
@@ -7,6 +7,8 @@ const BookDetail = () => {
   // useDispatch() ritorna la nostra funzione dispatch() che vorremo utilizzare per inviare l'ACTION al reducer
   // di conseguenza avviare il processo di modifica dello Stato Globale
   const bookSelected = useSelector(state => state.bookSelected.content);
+  const userName = useSelector(state => state.user.content);
+
   return (
     <div className="mt-3 mb-4 mb-lg-0">
       {bookSelected ? (
@@ -34,15 +36,19 @@ const BookDetail = () => {
                   <span className="font-weight-bold">Price:</span>&nbsp;
                   <span className="display-6 text-primary">{bookSelected.price}€</span>
                 </p>
-                <Button
-                  variant="primary"
-                  onClick={() => {
-                    // dispatch({ type: ADD_TO_CART, payload: bookSelected });
-                    dispatch(addToCartAction(bookSelected));
-                  }}
-                >
-                  ADD TO CART
-                </Button>
+                {userName ? (
+                  <Button
+                    variant="primary"
+                    onClick={() => {
+                      // dispatch({ type: ADD_TO_CART, payload: bookSelected });
+                      dispatch(addToCartAction(bookSelected));
+                    }}
+                  >
+                    ADD TO CART
+                  </Button>
+                ) : (
+                  <Alert variant="info">Loggati prima di procedere</Alert>
+                )}
               </div>
             </Col>
           </Row>

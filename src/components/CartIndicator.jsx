@@ -28,7 +28,7 @@ const CartIndicator = () => {
     <div className="text-end mt-3 mb-4">
       {userName ? (
         <>
-          <span>
+          <span className="me-2">
             Benvenuto/a, <strong>{userName}</strong>
           </span>
           <Button

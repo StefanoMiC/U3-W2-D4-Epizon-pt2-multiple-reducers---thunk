@@ -8,12 +8,12 @@ export const SELECT_BOOK = "SELECT_BOOK";
 export const SET_ADMIN = "SET_ADMIN";
 export const SET_USER = "USER";
 
-// ACTION CREATORS
-// funzioni che tornano l'azione (oggetto)
+// ACTION CREATORS — funzioni che tornano l'azione (oggetto)
 
 // export const addToCartAction = (bookSelected) => {
 //     return { type: ADD_TO_CART, payload: bookSelected }
 // }
+
 export const addToCartAction = bookSelected => ({ type: ADD_TO_CART, payload: bookSelected });
 export const removeFromCartAction = i => ({ type: REMOVE_FROM_CART, payload: i });
 export const selectBookAction = book => ({ type: SELECT_BOOK, payload: book });
