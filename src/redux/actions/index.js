@@ -28,6 +28,9 @@ export const setUserNameAction = str => ({ type: SET_USER, payload: str });
 export const getBooksAction = () => {
   // la funzione RITORNATA dal nostro action creator è quella che possiamo rendere async
   return async (dispatch, getState) => {
+    // come primo parametro ci viene regalata la funzione dispatch(), SEMPRE necessaria per l'invio di una action al reducer,
+    // e per essere sincronizzati col momento effettivo in cui siamo pronti ad inviarla, dopo l'arrivo dei dati da una fetch asincrona
+
     // getState() è una funzione che, una volta chiamata, ritorna lo stato globale (oggetto)
     console.log("GET STATE", getState());
     try {
